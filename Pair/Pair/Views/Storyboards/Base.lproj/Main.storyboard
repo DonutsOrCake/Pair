@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c8J-NW-gxG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pear randomizer-->
+        <scene sceneID="sXK-cu-ymK">
+            <objects>
+                <tableViewController id="2zk-iv-lva" customClass="PersonListTableViewController" customModule="Pair" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CA5-6S-6Pa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="personCell" id="dbw-q2-0Gt" customClass="PersonTableViewCell" customModule="Pair" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dbw-q2-0Gt" id="TWI-2C-X1e">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(name)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SJ0-S8-6YS">
+                                            <rect key="frame" x="28" y="11.5" width="54.5" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="SJ0-S8-6YS" firstAttribute="leading" secondItem="TWI-2C-X1e" secondAttribute="leadingMargin" constant="8" id="s4S-aE-fkW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstItem="SJ0-S8-6YS" firstAttribute="centerY" secondItem="dbw-q2-0Gt" secondAttribute="centerY" id="kap-8Y-fXg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="personNameLabel" destination="SJ0-S8-6YS" id="bA8-D5-pfe"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2zk-iv-lva" id="wuy-j9-H2i"/>
+                            <outlet property="delegate" destination="2zk-iv-lva" id="cuI-dA-ObA"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Pear randomizer" id="vIt-UD-Fj2">
+                        <barButtonItem key="leftBarButtonItem" title="Shuffle" image="shuffle" catalog="system" id="AAG-NP-LuH">
+                            <connections>
+                                <action selector="shuffleBarButtonTapped:" destination="2zk-iv-lva" id="8zA-mP-IHV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="kes-Wq-eG9">
+                            <connections>
+                                <action selector="addBarButtonTapped:" destination="2zk-iv-lva" id="vmB-nB-rMa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="personListTableView" destination="CA5-6S-6Pa" id="iw8-sj-sq4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nUC-Ff-5tb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="414" y="117"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ht4-CO-8dQ">
+            <objects>
+                <navigationController id="c8J-NW-gxG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6SY-hc-gKt">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2zk-iv-lva" kind="relationship" relationship="rootViewController" id="ocC-bs-nxh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYe-up-htN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-325" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="shuffle" catalog="system" width="128" height="93"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
